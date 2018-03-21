@@ -4,8 +4,18 @@ body {
   font-family: sans-serif;
 }
 
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: #eee;
+}
+
 .button {
-  margin: 0;
+  margin: 24px 12px;
+  margin-left: 36px;
   padding: 6px;
   width: 90px;
   border: none;
@@ -29,7 +39,7 @@ body {
 }
 
 .input {
-  margin: 0;
+  margin: 24px 12px;
   padding: 6px;
   max-width: 180px;
   border: none;
