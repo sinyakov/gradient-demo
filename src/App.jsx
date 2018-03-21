@@ -46,7 +46,8 @@ class App extends React.Component {
 
   updateValues = (inputType, rawColorValue) => {
     const hex = rawColorValue.replace(/[^0-9A-Fa-f]/gi, '').slice(0, 6);
-    const color = hex.length ? `#${hex}` : '';
+    const hexColor = hex.length !== 0 ? `#${hex}` : '';
+    const color = rawColorValue[0] === '#' && hex.length === 0 ? '#' : hexColor;
 
     this.setState(({ values }) => ({
       values: {
