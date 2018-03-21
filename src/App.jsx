@@ -1,3 +1,16 @@
 import React from 'react';
+import Button from './components/Button';
 
-export default () => <h1>Gradient Demo</h1>;
+class App extends React.Component {
+  state = {};
+
+  render() {
+    return (
+      <div className="content">
+        <Button>Go</Button>
+      </div>
+    );
+  }
+}
+
+export default App;
