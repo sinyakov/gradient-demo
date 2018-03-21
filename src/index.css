@@ -27,3 +27,17 @@ body {
 .button:active {
   transform: scale(0.95);
 }
+
+.input {
+  margin: 0;
+  padding: 6px;
+  max-width: 180px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 2px #bbb;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 32px;
+  transition: 200ms ease-out;
+}
