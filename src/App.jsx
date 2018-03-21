@@ -10,9 +10,14 @@ const INPUT_TYPE = Object.freeze({
 
 const isValidHex = value => value.match(/#[0-9A-Fa-f]{6}$/g);
 
+const generateRandomHex = () =>
+  `#${Math.floor(Math.random() * 2 ** 24) // eslint-disable-line no-mixed-operators
+    .toString(16)
+    .padStart(6, 0)}`;
+
 const startValues = {
-  [INPUT_TYPE.TOP]: '#123456',
-  [INPUT_TYPE.BOTTOM]: '#123456',
+  [INPUT_TYPE.TOP]: generateRandomHex(),
+  [INPUT_TYPE.BOTTOM]: generateRandomHex(),
 };
 
 class App extends React.Component {
@@ -24,7 +29,7 @@ class App extends React.Component {
       ...startValues,
     },
     activeInput: INPUT_TYPE.NONE,
-    history: [],
+    history: Array.from({ length: 18 }).map(generateRandomHex),
   };
 
   onInputChange = inputType => (event) => {
