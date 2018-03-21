@@ -34,16 +34,51 @@ body {
   transition: 200ms ease-out;
 }
 
-.input:focus {
+.input--active {
   background: palegoldenrod;
 }
 
+@keyframes show {
+  from {
+    min-height: 0;
+    max-height: 0;
+    opacity: 0;
+  }
+
+  to {
+    min-height: 44px;
+    max-height: 44px;
+    opacity: 1;
+  }
+}
+
+@keyframes hide {
+  from {
+    min-height: 44px;
+    max-height: 44px;
+    opacity: 1;
+  }
+
+  to {
+    min-height: 0;
+    max-height: 0;
+    opacity: 0;
+  }
+}
+
 .helper {
+  overflow: hidden;
   margin: 24px 12px;
   padding: 12px;
+  min-height: 0;
   width: 600px;
   border: none;
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.8);
   box-shadow: 0 0 6px 0 #bbb;
+  animation: show 200ms normal forwards ease-out;
+}
+
+.helper--closed {
+  animation: hide 200ms normal forwards ease-in;
 }

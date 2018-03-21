@@ -76,12 +76,14 @@ class App extends React.Component {
               placeholder="Top"
               onChange={this.onInputChange(INPUT_TYPE.TOP)}
               onFocus={this.toggleHelper(INPUT_TYPE.TOP)}
+              isActive={activeInput === INPUT_TYPE.TOP}
             />
             <Input
               value={bottomValue}
               placeholder="Bottom"
               onChange={this.onInputChange(INPUT_TYPE.BOTTOM)}
               onFocus={this.toggleHelper(INPUT_TYPE.BOTTOM)}
+              isActive={activeInput === INPUT_TYPE.BOTTOM}
             />
           </div>
           {activeInput !== INPUT_TYPE.NONE && (
@@ -89,7 +91,6 @@ class App extends React.Component {
               color={this.state.background[activeInput]}
               closeHelper={this.toggleHelper(INPUT_TYPE.NONE)}
               onChange={this.onHelperChange(this.state.activeInput)}
-              onFocus={this.toggleHelper(INPUT_TYPE.BOTTOM)}
             />
           )}
         </main>
