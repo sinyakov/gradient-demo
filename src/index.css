@@ -13,6 +13,13 @@ body {
   background: #eee;
 }
 
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .input {
   margin: 24px 12px;
   padding: 6px;
@@ -25,4 +32,18 @@ body {
   text-transform: uppercase;
   font-size: 32px;
   transition: 200ms ease-out;
+}
+
+.input:focus {
+  background: palegoldenrod;
+}
+
+.helper {
+  margin: 24px 12px;
+  padding: 12px;
+  width: 600px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 6px 0 #bbb;
 }
