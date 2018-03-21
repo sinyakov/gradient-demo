@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import Input from './components/Input';
 import Button from './components/Button';
 
@@ -14,6 +15,7 @@ class App extends React.Component {
     [INPUT_TYPE.TOP]: '',
     [INPUT_TYPE.BOTTOM]: '',
     background: '#eee',
+    error: false,
   };
 
   onChange = inputType => (event) => {
@@ -27,14 +29,21 @@ class App extends React.Component {
     if (isValidHex(top) && isValidHex(bottom)) {
       const background = `linear-gradient(${top}, ${bottom})`;
       this.setState({ background });
+    } else {
+      this.setState({ error: true });
+      setTimeout(() => {
+        this.setState({ error: false });
+      }, 800);
     }
   };
 
   render() {
-    const { top, bottom, background } = this.state;
+    const {
+      top, bottom, background, error,
+    } = this.state;
     return (
       <div className="content" style={{ background }}>
-        <form onSubmit={this.onSubmit}>
+        <form className={cn(error && 'form--error')} onSubmit={this.onSubmit}>
           <Input value={top} placeholder="Top" onChange={this.onChange(INPUT_TYPE.TOP)} />
           <Input value={bottom} placeholder="Bottom" onChange={this.onChange(INPUT_TYPE.BOTTOM)} />
           <Button>Go</Button>

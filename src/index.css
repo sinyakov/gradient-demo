@@ -51,3 +51,30 @@ body {
   font-size: 32px;
   transition: 200ms ease-out;
 }
+
+@keyframes shaking {
+  10%,
+  90% {
+    transform: translate3d(-2px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(5px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+.form--error {
+  animation: 800ms shaking ease-in-out;
+}
