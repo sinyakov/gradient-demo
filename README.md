@@ -4,6 +4,8 @@
 
 ```bash
 git clone git@github.com:sinyakov/gradient-demo.git
+cd gradient-demo
+git checkout simple # для базовой версии
 npm install
 npm start
 ```
