@@ -2,6 +2,7 @@
   "name": "gradient-demo",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://http://color.sinyakov.com/simple",
   "dependencies": {
     "classnames": "^2.2.5",
     "prop-types": "^15.6.1",
