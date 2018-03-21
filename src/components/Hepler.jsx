@@ -3,16 +3,34 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { SliderPicker } from 'react-color';
 
+const renderBadges = (colors, onChange) => (
+  <div className="badges">
+    {colors.map(color => (
+      <button
+        className="badges__item"
+        style={{ background: color }}
+        onClick={() => onChange(color)}
+        key={color}
+        type="button"
+      >
+        {color}
+      </button>
+    ))}
+  </div>
+);
+
 export default class Helper extends Component {
   static propTypes = {
     color: PropTypes.string.isRequired,
     onChange: PropTypes.func,
     closeHelper: PropTypes.func,
+    history: PropTypes.arrayOf(PropTypes.string),
   };
 
   static defaultProps = {
     onChange: () => {},
     closeHelper: () => {},
+    history: [],
   };
 
   state = { closed: false };
@@ -42,12 +60,13 @@ export default class Helper extends Component {
   };
 
   render() {
-    const { color } = this.props;
+    const { color, history, onChange } = this.props;
     const { closed } = this.state;
 
     return (
       <div ref={this.setWrapperRef} className={cn('helper', closed && 'helper--closed')}>
         <SliderPicker color={color} onChange={this.onDragColorPicker} />
+        {renderBadges(history, onChange)}
       </div>
     );
   }

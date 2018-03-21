@@ -24,6 +24,7 @@ class App extends React.Component {
       ...startValues,
     },
     activeInput: INPUT_TYPE.NONE,
+    history: [],
   };
 
   onInputChange = inputType => (event) => {
@@ -52,6 +53,7 @@ class App extends React.Component {
           ...background,
           [inputType]: color,
         },
+        history: [...new Set([color, ...this.state.history])].slice(0, 18),
       }));
     }
   };
@@ -61,6 +63,7 @@ class App extends React.Component {
       background: { top, bottom },
       values: { top: topValue, bottom: bottomValue },
       activeInput,
+      history,
     } = this.state;
     return (
       <div
@@ -91,6 +94,7 @@ class App extends React.Component {
               color={this.state.background[activeInput]}
               closeHelper={this.toggleHelper(INPUT_TYPE.NONE)}
               onChange={this.onHelperChange(this.state.activeInput)}
+              history={history}
             />
           )}
         </main>

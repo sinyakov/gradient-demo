@@ -46,16 +46,16 @@ body {
   }
 
   to {
-    min-height: 44px;
-    max-height: 44px;
+    min-height: 196px;
+    max-height: 196px;
     opacity: 1;
   }
 }
 
 @keyframes hide {
   from {
-    min-height: 44px;
-    max-height: 44px;
+    min-height: 196px;
+    max-height: 196px;
     opacity: 1;
   }
 
@@ -81,4 +81,23 @@ body {
 
 .helper--closed {
   animation: hide 200ms normal forwards ease-in;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px -10px 0;
+}
+
+.badges__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 6px 9px;
+  width: 85px;
+  height: 32px;
+  border-radius: 4px;
+  text-transform: lowercase;
+  font-size: 16px;
+  cursor: pointer;
 }
